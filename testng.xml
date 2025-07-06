@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<parameter name ="browser" value = "Chrome"/>
+  <test name="Entrata Test">
+  <classes>
+	  <!--<class name="Entrata.testcases.FirstcaseTest">
+		  <methods>
+			  <include name="verifyEntrataHomepage"></include>
+		  </methods>
+		  </class>-->
+
+	  <class name="Entrata.testcases.SecondcaseTest">
+		  <methods>
+			  <include name="verifyResourcespage"></include>
+		  </methods>
+		  
+	  </class>
+	  </classes>
+  
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
