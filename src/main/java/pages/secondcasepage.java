@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +21,7 @@ import org.testng.Assert;
 import com.aventstack.extentreports.Status;
 
 import Base.SeleniumBase;
+import utils.ReadFile;
 
 public class secondcasepage extends SeleniumBase{
 	
@@ -28,10 +31,15 @@ public class secondcasepage extends SeleniumBase{
 		PageFactory.initElements(driver, this);
 	}
 	
+	private static final Logger logger = LogManager.getLogger(secondcasepage.class);
+	
+	ReadFile rf = new ReadFile();
+	String url = rf.urlvalue();
+	
 	static WebDriverWait wait;
 	
-	static String theme = "Solo";
-	static String themeurl = "solo";
+	static String theme = "Majestic";
+	static String themeurl = "majestic";
 	static String tomorrowdate = LocalDate.now().plusDays(1).toString();
 	static String avail = "//span[@class='unit-title']/a/../following-sibling::div/span[contains(text(),'Available')]";
 	
@@ -47,51 +55,45 @@ public class secondcasepage extends SeleniumBase{
 	@FindBy(xpath="//h2[@class='theme-title']")
 	private List<WebElement> themeslist;
 	
-	@FindBy(xpath="//button//span[text()='Menu']")
-	private WebElement menu;
-	
-	@FindBy(xpath = "//div[@class='picker-field']//button")
-	private WebElement datepicker;
-	
-	@FindBy(xpath = "//div[@role='application']//h6")
-	private WebElement month;
-	
-	@FindBy(xpath="//button[@type='submit' and contains(text(),'Search')]")
-	private WebElement searchbutton;
-	
-	@FindBy(xpath="//span[@class='unit-title']/a/../following-sibling::div/span[contains(text(),'Available')]")
-	private List<WebElement> availability;
+	@FindBy(xpath="//span[@class= 'value' and contains(text(),'(555) 123-8595')]")
+	private WebElement phone;
 	
 	
-	private static By themeselection = By.xpath("//h2[@class='theme-title' and text() = '"+theme+"']//following::a[contains(@href,'"+themeurl+"demo') and text()='desktop_mac']");
-	private static By href = By.xpath("//h2[@class='theme-title' and text() = '"+theme+"']//following::a[contains(@href,'"+themeurl+"demo')]");
-	private static By date = By.xpath("//div[@role='application']//button[@data-date='"+tomorrowdate+"']");
-	private static By apartnames = By.xpath(avail+"/../preceding-sibling::span[@class='unit-title']/a[@role='button']");
-	private static By roomdetails = By.xpath(avail+"/preceding-sibling::span");
-	private static By feedetails = By.xpath(avail+"/../parent::div/following-sibling::div//span[@class='fee-transparency-text']");
+	
+	
+	private static By themeselection = By.xpath("//h2[@class='theme-title' and contains(text(), '"+theme+"')]//following::a[contains(@href,'"+themeurl+"demo') and text()='desktop_mac']");
+	private static By href = By.xpath("//h2[@class='theme-title' and contains(text(), '"+theme+"')]//following::a[contains(@href,'"+themeurl+"demo')]");
+	
 	
 	public void resourcespage()
 	{
 		
 		waitFOR(resources);
-		actionsclick(resources);	
+		logger.info("waiting for resources button");
+		actionsclick(resources);
+		logger.info("resources button is clicked");
 		String selection = "theme-gallery";
 		dropdown(selection,resourceDropdowns);
+		logger.info("Selected option in dropdown is clicked");
 		getTest().log(Status.PASS,selection+" dropdown from Entrata Resources is selected");
 		waitFOR(themegallerypage);
+		logger.info("waiting for themes gallery page");
 		if(themegallerypage.isDisplayed())
 		{
+		
+			logger.info(selection+" page is displayed");
 			getTest().log(Status.PASS,selection+" page from Entrata Resources is displayed");
 			System.out.println("There is totally "+themeslist.size()+" themes in Resources");
 		}
 		else
 		{
+			logger.error(selection+" page is not displayed");
 			getTest().log(Status.FAIL,selection+" page from Entrata Resources is not displayed");
 		}
 		
 	}
 	
-	public void themes()
+	public void themes() throws InterruptedException
 	
 	{
 		
@@ -100,20 +102,21 @@ public class secondcasepage extends SeleniumBase{
 
 		
 		driver.findElement(themeselection).click();
-		
-		switchwindow(menu);
-		
+		logger.info("selecting any theme based on dynamic option");
+		switchwindow(phone);
+		logger.info("window switched");
 		String currenturl = driver.getCurrentUrl();
 		
 		
 		try {
 
 			Assert.assertEquals(hrefValue, currenturl);
+			logger.info("Actual url meets Expected url: Expection: "+hrefValue+" Actual:"+currenturl);
 			getTest().log(Status.PASS,"Theme name: "+theme+" is selected and Window is switched");
 		}
 		catch(AssertionError e)
 		{
-			
+			logger.error("Theme name: "+theme+" is selected and Window is not switched due to " +e);
 			getTest().log(Status.FAIL,"Theme name: "+theme+" is selected and Window is not switched");
 			throw e;
 		}
@@ -121,41 +124,17 @@ public class secondcasepage extends SeleniumBase{
 		
 	}
 	
-	public void bookroom() throws InterruptedException
+	public thirdcasepage NavigatetoHomepage()
 	{
 		
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300);"); // Scroll down 300 pixels
+		driver.navigate().to(url);
+		logger.info("Navigating back to home URL..s");
+		return new thirdcasepage(driver);
 		
-
-
-		//driver.findElement(By.xpath("//button[@id='pc_banner_close']")).click();
-		waitFOR(datepicker);
-		Click(datepicker);
-		Thread.sleep(5000);
 		
-		waitFOR(month);
-		System.out.println("Month value: "+month.getText());
-		
-		waitFOR(date);
-		driver.findElement(date).click();
-		
-		Click(searchbutton);
-		cloudfare();
-		driver.switchTo().defaultContent();
-		waitFOR(apartnames);
-		System.out.println("All the available apartment names and their fee details as follows: ");
-		List<WebElement>apartlist = driver.findElements(apartnames);
-		List<WebElement>roomlist = driver.findElements(roomdetails);
-		List<WebElement>feelist = driver.findElements(feedetails);
-		
-		for(int i=0;i<apartlist.size();i++)
-		{
-			String aparts = apartlist.get(i).getText();
-			String rooms = roomlist.get(i).getText();
-			String fees = feelist.get(i).getText();
-			System.out.println("Apartment Name: "+aparts+" Room details: "+rooms+" Fee details: "+fees);
-			
-		}
+	}
+	
+	
 		
 		
 		
@@ -166,4 +145,4 @@ public class secondcasepage extends SeleniumBase{
 
 	}
 
-}
+

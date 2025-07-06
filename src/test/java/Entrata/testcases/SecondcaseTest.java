@@ -23,8 +23,7 @@ public class SecondcaseTest extends EntrataBase{
 		secondcasepage scp = new secondcasepage(driver);
 		scp.resourcespage();
 		scp.themes();
-		scp.bookroom();
-		
+		scp.NavigatetoHomepage();		
 		
 		getTest().log(Status.PASS,"Entrata Resources and Theme Gallery page Testcase passed");
 		

@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="4" total="7" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-05T15:05:00 IST" name="Suite" finished-at="2025-07-05T15:06:05 IST" duration-ms="65854">
+  <suite started-at="2025-07-06T21:29:01 IST" name="Suite" finished-at="2025-07-06T21:30:29 IST" duration-ms="87552">
     <groups>
     </groups>
-    <test started-at="2025-07-05T15:05:00 IST" name="Entrata Test" finished-at="2025-07-05T15:06:05 IST" duration-ms="65854">
+    <test started-at="2025-07-06T21:29:01 IST" name="Entrata Test" finished-at="2025-07-06T21:30:29 IST" duration-ms="87552">
+      <class name="Entrata.testcases.ThirdcaseTest">
+        <test-method signature="verifyDemoform(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:3, instance:Entrata.testcases.ThirdcaseTest@38e79ae3]" started-at="2025-07-06T21:30:23 IST" name="verifyDemoform" data-provider="Formdata" finished-at="2025-07-06T21:30:27 IST" duration-ms="4462" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Philo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Prakash]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[philo123@gmail.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Current]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[2147483647]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[101 - 300]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Tester]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[a Resident]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[public void Entrata.testcases.ThirdcaseTest.verifyDemoform(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDemoform -->
+      </class> <!-- Entrata.testcases.ThirdcaseTest -->
       <class name="Entrata.testcases.SecondcaseTest">
-        <test-method is-config="true" signature="launchDriver(java.lang.String)[pri:0, instance:Entrata.testcases.SecondcaseTest@48f2bd5b]" started-at="2025-07-05T15:05:00 IST" name="launchDriver" finished-at="2025-07-05T15:05:06 IST" duration-ms="6101" status="PASS">
+        <test-method signature="verifyResourcespage(java.lang.reflect.Method)[pri:2, instance:Entrata.testcases.SecondcaseTest@6f45df59]" started-at="2025-07-06T21:29:32 IST" name="verifyResourcespage" finished-at="2025-07-06T21:30:21 IST" duration-ms="48791" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Entrata.testcases.SecondcaseTest.verifyResourcespage(java.lang.reflect.Method) throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyResourcespage -->
+      </class> <!-- Entrata.testcases.SecondcaseTest -->
+      <class name="Entrata.testcases.FirstcaseTest">
+        <test-method is-config="true" signature="launchDriver(java.lang.String)[pri:0, instance:Entrata.testcases.FirstcaseTest@4c309d4d]" started-at="2025-07-06T21:29:01 IST" name="launchDriver" finished-at="2025-07-06T21:29:27 IST" duration-ms="25888" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,25 +84,28 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchDriver -->
-        <test-method signature="verifyResourcespage(java.lang.reflect.Method)[pri:2, instance:Entrata.testcases.SecondcaseTest@48f2bd5b]" started-at="2025-07-05T15:05:06 IST" name="verifyResourcespage" finished-at="2025-07-05T15:06:04 IST" duration-ms="58317" status="FAIL">
+        <test-method signature="verifyEntrataHomepage(java.lang.reflect.Method)[pri:1, instance:Entrata.testcases.FirstcaseTest@4c309d4d]" started-at="2025-07-06T21:29:27 IST" name="verifyEntrataHomepage" finished-at="2025-07-06T21:29:32 IST" duration-ms="4907" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void Entrata.testcases.SecondcaseTest.verifyResourcespage(java.lang.reflect.Method) throws java.lang.InterruptedException]]>
+                <![CDATA[public void Entrata.testcases.FirstcaseTest.verifyEntrataHomepage(java.lang.reflect.Method)]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.TimeoutException">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for frame to be available: By.xpath: //iframe[@title='Widget containing a Cloudflare security challenge'] (tried for 20 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[expected [https://www.entrata.com/press/blackstone] but found [https://www.entrata.com/]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for frame to be available: By.xpath: //iframe[@title='Widget containing a Cloudflare security challenge'] (tried for 20 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at Base.SeleniumBase.cloudfare(SeleniumBase.java:159)
-at pages.secondcasepage.bookroom(secondcasepage.java:143)
-at Entrata.testcases.SecondcaseTest.verifyResourcespage(SecondcaseTest.java:26)
+              <![CDATA[java.lang.AssertionError: expected [https://www.entrata.com/press/blackstone] but found [https://www.entrata.com/]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at org.testng.Assert.assertEquals(Assert.java:639)
+at pages.firstcasepage.companyNews(firstcasepage.java:72)
+at Entrata.testcases.FirstcaseTest.verifyEntrataHomepage(FirstcaseTest.java:30)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -65,46 +134,17 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//iframe[@title='Widget containing a Cloudflare security challenge']"}
-  (Session info: chrome=138.0.7204.96)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [61ba716c4603cea397af51f53e8538a7, findElement {value=//iframe[@title='Widget containing a Cloudflare security challenge'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.96, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\praka\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52159}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52159/devtoo..., se:cdpVersion: 138.0.7204.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 61ba716c4603cea397af51f53e8538a7
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
-at org.openqa.selenium.support.ui.ExpectedConditions$17.apply(ExpectedConditions.java:491)
-at org.openqa.selenium.support.ui.ExpectedConditions$17.apply(ExpectedConditions.java:487)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 31 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyResourcespage -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Entrata.testcases.SecondcaseTest@48f2bd5b]" started-at="2025-07-05T15:06:04 IST" name="teardown" finished-at="2025-07-05T15:06:05 IST" duration-ms="1373" status="PASS">
+        </test-method> <!-- verifyEntrataHomepage -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Entrata.testcases.FirstcaseTest@4c309d4d]" started-at="2025-07-06T21:30:27 IST" name="teardown" finished-at="2025-07-06T21:30:29 IST" duration-ms="1596" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- Entrata.testcases.SecondcaseTest -->
+      </class> <!-- Entrata.testcases.FirstcaseTest -->
     </test> <!-- Entrata Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -1,6 +1,6 @@
 package Base;
 
-import static extentReports.ExtentTestManager.getTest;
+
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -17,14 +17,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.aventstack.extentreports.Status;
 
 
 public class SeleniumBase {
 
 	public static WebDriver driver;
+
+
 	static int MaxWaitTime = 30;
 	WebDriverWait wait;
 
@@ -118,8 +120,9 @@ public class SeleniumBase {
 
 	}
 
-	public void switchwindow(WebElement element)
+	public void switchwindow(WebElement element) 
 	{
+		
 		String currentwindow = driver.getWindowHandle();
 		Set<String> Allwindows =  driver.getWindowHandles();
 		List<String> toList = new ArrayList<String>(Allwindows);
@@ -151,20 +154,12 @@ public class SeleniumBase {
 		}
 	}
 	
-	public void cloudfare()
+	public void SelectbyValue(WebElement element, String str)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-		// Switch to the CAPTCHA iframe
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(
-		    By.xpath("//iframe[@title='Widget containing a Cloudflare security challenge']"))
-		);
-
-		// Wait for the checkbox inside the CAPTCHA to be clickable and click it
-		wait.until(ExpectedConditions.elementToBeClickable(
-		    By.xpath("//label[@class='ctp-checkbox-label']"))
-		).click();
-
+		Select select = new Select(element);
+		
+		select.selectByValue(str);
+		
 	}
 
 	public void driverQuit()
