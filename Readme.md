@@ -20,10 +20,10 @@ This project is a TestNG-based automation testing framework developed in Java us
 ---
 
 ## How to setup this project in local and run the Tests
-1.git clone https://github.com/Philomina-26/Entrata.git
-2.cd Entrata
-3.Open Eclipse
-4.Choose File > Import > Existing Maven Project (for Eclipse).
-5.Select Entrata folder and finish import
-6.Run the testng.xml file
+1. git clone https://github.com/Philomina-26/Entrata.git
+2. cd Entrata
+3. Open Eclipse
+4. Choose File > Import > Existing Maven Project (for Eclipse).
+5. Select Entrata folder and finish import
+6. Run the testng.xml file
 
